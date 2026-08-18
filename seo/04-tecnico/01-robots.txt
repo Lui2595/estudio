@@ -1,0 +1,39 @@
+# robots.txt
+
+# TEMA: Control de rastreo
+# ENTREVISTA: ¿Qué hace robots.txt y qué NO hace?
+
+User-agent: *
+Allow: /
+
+# Bloquear áreas privadas o sin valor SEO
+Disallow: /admin/
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /_nuxt/
+Disallow: /storage/
+Disallow: /*?*utm_
+Disallow: /search?
+
+# Permitir assets importantes (Google necesita CSS/JS para renderizar)
+Allow: /css/
+Allow: /js/
+Allow: /images/
+
+# Sitemap (obligatorio indicar)
+Sitemap: https://miempresa.com/sitemap.xml
+
+# Crawl-delay (solo algunos bots lo respetan, Google lo ignora)
+# Crawl-delay: 10
+
+# Reglas específicas por bot
+User-agent: Googlebot
+Allow: /
+
+User-agent: GPTBot
+Disallow: /
+
+# IMPORTANTE:
+# - robots.txt NO es seguridad (solo sugerencia a bots)
+# - Disallow NO elimina del índice (usar noindex para eso)
+# - Probar en Google Search Console → robots.txt Tester

@@ -1,0 +1,53 @@
+{
+  "cases": [
+    {
+      "name": "london_bogota_cdmx",
+      "input": [
+        ["london", 12],
+        ["london", 12],
+        ["london", 12],
+        ["london", 12],
+        ["bogota", 20],
+        ["bogota", 22],
+        ["cdmx", 24]
+      ],
+      "expected": {
+        "london": 12.0,
+        "bogota": 21.0,
+        "cdmx": 24.0
+      }
+    },
+    {
+      "name": "london_only",
+      "input": [
+        ["london", 10],
+        ["london", 14],
+        ["london", 12],
+        ["london", 11],
+        ["london", 13]
+      ],
+      "expected": {
+        "london": 12.0
+      }
+    },
+    {
+      "name": "mixed",
+      "input": [
+        ["bogota", 18],
+        ["london", 9],
+        ["bogota", 22],
+        ["london", 11],
+        ["london", 10]
+      ],
+      "expected": {
+        "bogota": 20.0,
+        "london": 10.0
+      }
+    },
+    {
+      "name": "empty",
+      "input": [],
+      "expected": {}
+    }
+  ]
+}

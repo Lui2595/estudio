@@ -1,0 +1,85 @@
+{
+  "cases": [
+    {
+      "name": "merge_basic",
+      "fn": "mergeBusy",
+      "input": { "intervals": [[0, 60], [50, 120], [200, 300]] },
+      "expected": [[0, 120], [200, 300]]
+    },
+    {
+      "name": "merge_touching",
+      "fn": "mergeBusy",
+      "input": { "intervals": [[1, 2], [2, 3], [4, 5]] },
+      "expected": [[1, 3], [4, 5]]
+    },
+    {
+      "name": "merge_empty",
+      "fn": "mergeBusy",
+      "input": { "intervals": [] },
+      "expected": []
+    },
+    {
+      "name": "merge_contained",
+      "fn": "mergeBusy",
+      "input": { "intervals": [[0, 100], [10, 20], [90, 95]] },
+      "expected": [[0, 100]]
+    },
+    {
+      "name": "free_slots_basic",
+      "fn": "freeSlots",
+      "input": {
+        "busyIntervals": [[60, 120], [180, 240]],
+        "dayStart": 0,
+        "dayEnd": 300,
+        "slotMinutes": 30
+      },
+      "expected": [[0, 60], [120, 180], [240, 300]]
+    },
+    {
+      "name": "free_slots_omit_short",
+      "fn": "freeSlots",
+      "input": {
+        "busyIntervals": [[0, 50], [60, 100]],
+        "dayStart": 0,
+        "dayEnd": 100,
+        "slotMinutes": 15
+      },
+      "expected": []
+    },
+    {
+      "name": "free_slots_unsorted_busy",
+      "fn": "freeSlots",
+      "input": {
+        "busyIntervals": [[100, 150], [20, 40]],
+        "dayStart": 0,
+        "dayEnd": 200,
+        "slotMinutes": 20
+      },
+      "expected": [[0, 20], [40, 100], [150, 200]]
+    },
+    {
+      "name": "min_rooms_two",
+      "fn": "minRooms",
+      "input": { "intervals": [[0, 30], [5, 10], [15, 20]] },
+      "expected": 2
+    },
+    {
+      "name": "min_rooms_touching",
+      "fn": "minRooms",
+      "input": { "intervals": [[0, 10], [10, 20], [20, 30]] },
+      "expected": 1
+    },
+    {
+      "name": "min_rooms_three",
+      "fn": "minRooms",
+      "input": { "intervals": [[1, 5], [2, 6], [3, 7], [8, 9]] },
+      "expected": 3
+    },
+    {
+      "name": "min_rooms_empty",
+      "fn": "minRooms",
+      "input": { "intervals": [] },
+      "expected": 0
+    }
+  ]
+}

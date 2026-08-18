@@ -1,0 +1,43 @@
+{
+  "users": [
+    {
+      "email": "admin@example.com",
+      "password_plain_for_seeding_only": "Admin123!",
+      "role": "admin"
+    },
+    {
+      "email": "alice@example.com",
+      "password_plain_for_seeding_only": "Alice123!",
+      "role": "user"
+    },
+    {
+      "email": "bob@example.com",
+      "password_plain_for_seeding_only": "Bob123!",
+      "role": "user"
+    }
+  ],
+  "tasks": [
+    {
+      "owner_email": "alice@example.com",
+      "title": "Prepare EPAM interview notes",
+      "description": "Review Flask and Django auth patterns",
+      "status": "in_progress",
+      "priority": 5,
+      "due_date": "2026-07-20"
+    },
+    {
+      "owner_email": "alice@example.com",
+      "title": "Refactor logging middleware",
+      "status": "todo",
+      "priority": 3,
+      "due_date": null
+    },
+    {
+      "owner_email": "bob@example.com",
+      "title": "Write migration for soft deletes",
+      "status": "done",
+      "priority": 2,
+      "due_date": "2026-07-10"
+    }
+  ]
+}

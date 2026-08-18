@@ -1,0 +1,5 @@
+[
+  { "sku": "PLAN-BASIC", "name": "Basic Plan", "price_cents": 1999, "stock": 100 },
+  { "sku": "PLAN-PRO", "name": "Pro Plan", "price_cents": 4999, "stock": 50 },
+  { "sku": "ADDON-SEAT", "name": "Extra Seat", "price_cents": 500, "stock": 5 }
+]

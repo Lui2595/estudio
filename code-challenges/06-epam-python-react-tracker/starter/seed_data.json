@@ -1,0 +1,33 @@
+{
+  "users": [
+    {
+      "email": "luis@example.com",
+      "password_plain_for_seed_only": "Secret123!",
+      "name": "Luis"
+    },
+    {
+      "email": "other@example.com",
+      "password_plain_for_seed_only": "Secret123!",
+      "name": "Other"
+    }
+  ],
+  "projects": [
+    {
+      "owner_email": "luis@example.com",
+      "name": "EPAM Interview Prep",
+      "description": "Python.Web + React drills",
+      "status": "active",
+      "tasks": [
+        { "title": "Review Flask JWT", "status": "doing" },
+        { "title": "Practice N+1 answer", "status": "todo" },
+        { "title": "Build login form", "status": "done" }
+      ]
+    },
+    {
+      "owner_email": "other@example.com",
+      "name": "Secret Other Project",
+      "status": "active",
+      "tasks": [{ "title": "Should 404 for Luis", "status": "todo" }]
+    }
+  ]
+}

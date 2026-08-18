@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>SEO de Imágenes</title>
+</head>
+<body>
+  <!--
+    TEMA: Optimización de imágenes para SEO
+    ENTREVISTA: ¿Por qué importa el atributo alt?
+  -->
+
+  <!-- alt: accesibilidad + SEO. Describe la imagen, incluye keyword si es natural -->
+  <img
+    src="/images/desarrollo-laravel.webp"
+    alt="Equipo de desarrollo trabajando en proyecto Laravel y React"
+    width="800"
+    height="450"
+    loading="lazy"
+    decoding="async"
+  >
+
+  <!-- Imagen decorativa: alt vacío -->
+  <img src="/images/decoration.svg" alt="" role="presentation">
+
+  <!-- picture: formatos modernos con fallback -->
+  <picture>
+    <source srcset="/images/hero.avif" type="image/avif">
+    <source srcset="/images/hero.webp" type="image/webp">
+    <img
+      src="/images/hero.jpg"
+      alt="Dashboard de aplicación web moderna"
+      width="1200"
+      height="630"
+      fetchpriority="high"
+    >
+  </picture>
+
+  <!--
+    Buenas prácticas:
+    - Nombres de archivo descriptivos: desarrollo-laravel.webp (no IMG_2847.jpg)
+    - width/height explícitos → evita CLS
+    - loading="lazy" en imágenes below the fold
+    - fetchpriority="high" solo en LCP image (hero)
+    - Comprimir: TinyPNG, Squoosh, sharp (Node)
+    - srcset para responsive images
+    - Image sitemap para Google Images
+  -->
+</body>
+</html>

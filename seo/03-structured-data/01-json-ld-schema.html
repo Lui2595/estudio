@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Datos Estructurados JSON-LD</title>
+
+  <!--
+    TEMA: Schema.org / Rich Snippets
+    ENTREVISTA: ¿Qué son los datos estructurados y para qué sirven?
+    Ayudan a Google entender el contenido → rich results (estrellas, FAQ, breadcrumbs).
+  -->
+</head>
+<body>
+
+  <!-- Organization (sitio corporativo) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Mi Empresa",
+    "url": "https://miempresa.com",
+    "logo": "https://miempresa.com/logo.png",
+    "sameAs": [
+      "https://twitter.com/miempresa",
+      "https://linkedin.com/company/miempresa"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+34-900-000-000",
+      "contactType": "customer service",
+      "availableLanguage": "Spanish"
+    }
+  }
+  </script>
+
+  <!-- Article (blog post) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Guía SEO para desarrolladores Laravel",
+    "description": "Optimiza tu app Laravel para buscadores.",
+    "image": "https://miempresa.com/blog/seo-laravel.jpg",
+    "author": {
+      "@type": "Person",
+      "name": "Ana García"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Mi Empresa",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://miempresa.com/logo.png"
+      }
+    },
+    "datePublished": "2024-06-11",
+    "dateModified": "2024-06-15"
+  }
+  </script>
+
+  <!-- FAQ (rich results en SERP) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Qué es SEO técnico?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "SEO técnico optimiza la infraestructura del sitio para que buscadores puedan rastrear e indexar correctamente."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://miempresa.com" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://miempresa.com/blog" },
+      { "@type": "ListItem", "position": 3, "name": "SEO Laravel" }
+    ]
+  }
+  </script>
+
+  <!-- Product (e-commerce) -->
+  <!-- LocalBusiness, WebSite con SearchAction, HowTo, Recipe, etc. -->
+
+</body>
+</html>

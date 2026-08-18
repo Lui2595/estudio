@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  TEMA: XML Sitemap
+  ENTREVISTA: ¿Para qué sirve el sitemap.xml?
+
+  Lista URLs importantes para que buscadores las descubran e indexen.
+  No garantiza indexación, pero acelera descubrimiento.
+  Enviar a Google Search Console y Bing Webmaster Tools.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <url>
+    <loc>https://miempresa.com/</loc>
+    <lastmod>2024-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://miempresa.com/servicios/laravel</loc>
+    <lastmod>2024-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://miempresa.com/blog/seo-laravel</loc>
+    <lastmod>2024-06-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://miempresa.com/images/seo-laravel.jpg</image:loc>
+      <image:title>SEO en Laravel</image:title>
+    </image:image>
+  </url>
+
+</urlset>
+
+<!-- Sitemap index para sitios grandes (>50k URLs) -->
+<!--
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://miempresa.com/sitemap-pages.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://miempresa.com/sitemap-blog.xml</loc>
+  </sitemap>
+</sitemapindex>
+-->
+
+<!-- Laravel: spatie/laravel-sitemap o generar en comando artisan -->
+<!-- Next.js/Nuxt: módulos automáticos de sitemap -->

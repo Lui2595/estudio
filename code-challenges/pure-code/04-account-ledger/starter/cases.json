@@ -1,0 +1,104 @@
+{
+  "cases": [
+    {
+      "name": "happy_transfer",
+      "ops": [
+        ["Ledger"],
+        ["createAccount", "A", 500],
+        ["createAccount", "B", 100],
+        ["transfer", "A", "B", 200],
+        ["getBalance", "A"],
+        ["getBalance", "B"]
+      ],
+      "expected": [
+        { "ok": true },
+        { "ok": true },
+        { "ok": true },
+        { "ok": true, "balance": 300 },
+        { "ok": true, "balance": 300 }
+      ]
+    },
+    {
+      "name": "insufficient_funds",
+      "ops": [
+        ["Ledger"],
+        ["createAccount", "A", 50],
+        ["createAccount", "B", 0],
+        ["transfer", "A", "B", 51],
+        ["getBalance", "A"],
+        ["getBalance", "B"]
+      ],
+      "expected": [
+        { "ok": true },
+        { "ok": true },
+        { "ok": false, "error": "insufficient_funds" },
+        { "ok": true, "balance": 50 },
+        { "ok": true, "balance": 0 }
+      ]
+    },
+    {
+      "name": "validation_errors",
+      "ops": [
+        ["Ledger"],
+        ["createAccount", "A", 10],
+        ["createAccount", "A", 1],
+        ["transfer", "A", "A", 1],
+        ["transfer", "A", "B", 1],
+        ["transfer", "A", "A", 0],
+        ["getBalance", "Z"]
+      ],
+      "expected": [
+        { "ok": true },
+        { "ok": false, "error": "exists" },
+        { "ok": false, "error": "same_account" },
+        { "ok": false, "error": "not_found" },
+        { "ok": false, "error": "invalid_amount" },
+        { "ok": false, "error": "not_found" }
+      ]
+    },
+    {
+      "name": "history",
+      "ops": [
+        ["Ledger"],
+        ["createAccount", "A", 100],
+        ["createAccount", "B", 0],
+        ["transfer", "A", "B", 40],
+        ["transfer", "A", "B", 10],
+        ["getHistory", "A"],
+        ["getHistory", "B"]
+      ],
+      "expected": [
+        { "ok": true },
+        { "ok": true },
+        { "ok": true },
+        { "ok": true },
+        {
+          "ok": true,
+          "history": [
+            { "type": "transfer", "from": "A", "to": "B", "amount": 40, "resultingBalance": 60 },
+            { "type": "transfer", "from": "A", "to": "B", "amount": 10, "resultingBalance": 50 }
+          ]
+        },
+        {
+          "ok": true,
+          "history": [
+            { "type": "transfer", "from": "A", "to": "B", "amount": 40, "resultingBalance": 40 },
+            { "type": "transfer", "from": "A", "to": "B", "amount": 10, "resultingBalance": 50 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "zero_initial_ok",
+      "ops": [
+        ["Ledger"],
+        ["createAccount", "X", 0],
+        ["getBalance", "X"]
+      ],
+      "expected": [
+        { "ok": true },
+        { "ok": true, "balance": 0 }
+      ]
+    }
+  ]
+}

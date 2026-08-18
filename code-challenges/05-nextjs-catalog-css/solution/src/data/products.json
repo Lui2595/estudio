@@ -1,0 +1,74 @@
+[
+  {
+    "sku": "CHAIR-OAK",
+    "slug": "oak-lounge-chair",
+    "name": "Oak Lounge Chair",
+    "category": "furniture",
+    "price": 420,
+    "description": "Solid oak frame with linen seat. Built for long reading sessions.",
+    "imageSeed": "chair-oak"
+  },
+  {
+    "sku": "LAMP-ARC",
+    "slug": "arc-floor-lamp",
+    "name": "Arc Floor Lamp",
+    "category": "lighting",
+    "price": 180,
+    "description": "Brushed steel arc lamp with dimmable warm LED.",
+    "imageSeed": "lamp-arc"
+  },
+  {
+    "sku": "VASE-CLAY",
+    "slug": "clay-studio-vase",
+    "name": "Clay Studio Vase",
+    "category": "decor",
+    "price": 65,
+    "description": "Hand-thrown stoneware vase with matte glaze.",
+    "imageSeed": "vase-clay"
+  },
+  {
+    "sku": "DESK-WAL",
+    "slug": "walnut-compact-desk",
+    "name": "Walnut Compact Desk",
+    "category": "furniture",
+    "price": 690,
+    "description": "Compact walnut desk with cable pass-through.",
+    "imageSeed": "desk-wal"
+  },
+  {
+    "sku": "RUG-WOOL",
+    "slug": "wool-grid-rug",
+    "name": "Wool Grid Rug",
+    "category": "decor",
+    "price": 240,
+    "description": "Soft wool rug with subtle grid pattern, 160x230cm.",
+    "imageSeed": "rug-wool"
+  },
+  {
+    "sku": "LIGHT-PEND",
+    "slug": "opal-pendant-light",
+    "name": "Opal Pendant Light",
+    "category": "lighting",
+    "price": 130,
+    "description": "Milk-glass pendant for dining tables.",
+    "imageSeed": "light-pend"
+  },
+  {
+    "sku": "SHELF-MET",
+    "slug": "metal-wall-shelf",
+    "name": "Metal Wall Shelf",
+    "category": "furniture",
+    "price": 95,
+    "description": "Powder-coated steel shelf, 90cm wide.",
+    "imageSeed": "shelf-met"
+  },
+  {
+    "sku": "CLOCK-MIN",
+    "slug": "minimal-wall-clock",
+    "name": "Minimal Wall Clock",
+    "category": "decor",
+    "price": 55,
+    "description": "Silent quartz movement, matte black hands.",
+    "imageSeed": "clock-min"
+  }
+]

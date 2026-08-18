@@ -1,0 +1,66 @@
+{
+  "cases": [
+    {
+      "name": "simple_chain",
+      "mode": "any",
+      "packages": [
+        { "name": "a", "deps": ["b"] },
+        { "name": "b", "deps": ["c"] },
+        { "name": "c", "deps": [] }
+      ],
+      "expectOk": true,
+      "expectOrderIfLex": ["c", "b", "a"]
+    },
+    {
+      "name": "diamond",
+      "mode": "lex",
+      "packages": [
+        { "name": "app", "deps": ["api", "ui"] },
+        { "name": "api", "deps": ["db"] },
+        { "name": "ui", "deps": ["db"] },
+        { "name": "db", "deps": [] }
+      ],
+      "expectOk": true,
+      "expectOrderIfLex": ["db", "api", "ui", "app"]
+    },
+    {
+      "name": "cycle_simple",
+      "mode": "any",
+      "packages": [
+        { "name": "a", "deps": ["b"] },
+        { "name": "b", "deps": ["a"] }
+      ],
+      "expectOk": false,
+      "expectError": "cycle"
+    },
+    {
+      "name": "cycle_three",
+      "mode": "any",
+      "packages": [
+        { "name": "x", "deps": ["y"] },
+        { "name": "y", "deps": ["z"] },
+        { "name": "z", "deps": ["x"] }
+      ],
+      "expectOk": false,
+      "expectError": "cycle"
+    },
+    {
+      "name": "disconnected",
+      "mode": "lex",
+      "packages": [
+        { "name": "p", "deps": [] },
+        { "name": "q", "deps": [] },
+        { "name": "r", "deps": ["q"] }
+      ],
+      "expectOk": true,
+      "expectOrderIfLex": ["p", "q", "r"]
+    },
+    {
+      "name": "empty",
+      "mode": "any",
+      "packages": [],
+      "expectOk": true,
+      "expectOrderIfLex": []
+    }
+  ]
+}

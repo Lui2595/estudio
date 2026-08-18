@@ -1,0 +1,22 @@
+{
+  "users": [
+    { "name": "Admin", "email": "admin@orders.test", "password": "Password1!" }
+  ],
+  "customers": [
+    { "name": "Acme Corp", "email": "billing@acme.test" },
+    { "name": "Globex", "email": "ap@globex.test" }
+  ],
+  "products": [
+    { "name": "Laptop Pro", "sku": "LAP-PRO", "price": 24999.00, "stock": 10 },
+    { "name": "USB-C Hub", "sku": "HUB-USBC", "price": 799.00, "stock": 50 },
+    { "name": "Monitor 27", "sku": "MON-27", "price": 5999.00, "stock": 8 }
+  ],
+  "sample_order": {
+    "customer_email": "billing@acme.test",
+    "status": "pending",
+    "items": [
+      { "sku": "LAP-PRO", "quantity": 1 },
+      { "sku": "HUB-USBC", "quantity": 2 }
+    ]
+  }
+}

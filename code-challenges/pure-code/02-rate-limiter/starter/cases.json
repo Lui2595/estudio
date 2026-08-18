@@ -1,0 +1,80 @@
+{
+  "cases": [
+    {
+      "name": "basic_limit",
+      "note": "Window rule: (t - windowMs) < ts <= t. Rejected calls do not consume quota.",
+      "ops": [
+        ["RateLimiter", 3, 1000],
+        ["allow", "a", 0],
+        ["allow", "a", 100],
+        ["allow", "a", 200],
+        ["allow", "a", 300],
+        ["allow", "a", 1000],
+        ["allow", "a", 1001]
+      ],
+      "expected": [true, true, true, false, true, false]
+    },
+    {
+      "name": "basic_limit_after_slide",
+      "ops": [
+        ["RateLimiter", 3, 1000],
+        ["allow", "a", 0],
+        ["allow", "a", 100],
+        ["allow", "a", 200],
+        ["allow", "a", 1000],
+        ["allow", "a", 1101]
+      ],
+      "expected": [true, true, true, true, true]
+    },
+    {
+      "name": "multi_client",
+      "ops": [
+        ["RateLimiter", 2, 500],
+        ["allow", "a", 0],
+        ["allow", "b", 0],
+        ["allow", "a", 10],
+        ["allow", "a", 20],
+        ["allow", "b", 20],
+        ["allow", "b", 30]
+      ],
+      "expected": [true, true, true, false, true, false]
+    },
+    {
+      "name": "window_slide",
+      "ops": [
+        ["RateLimiter", 1, 100],
+        ["allow", "x", 0],
+        ["allow", "x", 50],
+        ["allow", "x", 100],
+        ["allow", "x", 101]
+      ],
+      "expected": [true, false, true, false]
+    },
+    {
+      "name": "burst_then_wait",
+      "ops": [
+        ["RateLimiter", 5, 1000],
+        ["allow", "u", 0],
+        ["allow", "u", 1],
+        ["allow", "u", 2],
+        ["allow", "u", 3],
+        ["allow", "u", 4],
+        ["allow", "u", 5],
+        ["allow", "u", 1000],
+        ["allow", "u", 1001]
+      ],
+      "expected": [true, true, true, true, true, false, true, true]
+    },
+    {
+      "name": "rejected_does_not_consume",
+      "ops": [
+        ["RateLimiter", 1, 1000],
+        ["allow", "z", 0],
+        ["allow", "z", 1],
+        ["allow", "z", 2],
+        ["allow", "z", 1001]
+      ],
+      "expected": [true, false, false, true]
+    }
+  ]
+}
